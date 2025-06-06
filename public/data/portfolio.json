@@ -1,7 +1,7 @@
 {
   "personal": {
     "name": "Nessim Baraket",
-    "title": "ML & Software Devoloper",
+    "title": "ML & Software Developer",
     "tagline": "Building the future with code and artificial intelligence",
     "email": "nessimbns2@gmail.com",
     "phone": "+216 27 508 531",
@@ -14,42 +14,48 @@
     }
   },
   "about": {
-    "description": "Passionate software developer with 5+ years of experience in full-stack development and AI/ML. I specialize in creating intelligent applications that solve real-world problems using cutting-edge technologies.",
+    "description": "Motivated computer science student passionate about software development and AI. Enjoys solving complex problems and building real-world applications. Also likes chess, music, and camping outdoors.",
     "highlights": [
-      "Led development of AI-powered applications serving 100K+ users",
-      "Expert in React, Node.js, Python, and machine learning frameworks",
-      "Open source contributor with 50+ GitHub repositories",
-      "Speaker at tech conferences and AI meetups"
+      "Solving algorithmic challenges on platforms like Codeforces and LeetCode",
+      "Completed several academic and personal projects in web development and AI",
+      "Passionate about open source and collaborative learning",
+      "Beyond tech, enjoys playing chess, exploring music, and camping in the outdoors."
     ]
   },
   "skills": {
-    "languages": ["JavaScript", "TypeScript", "Python", "Go", "Rust"],
-    "frontend": ["React", "Next.js", "Vue.js", "Tailwind CSS", "Three.js"],
-    "backend": ["Node.js", "Express", "FastAPI", "PostgreSQL", "MongoDB"],
-    "ai_ml": ["TensorFlow", "PyTorch", "OpenAI API", "Hugging Face", "LangChain"],
-    "tools": ["Docker", "AWS", "Vercel", "Git", "Figma"]
+    "Languages": ["c","cpp", "Python", "php", "Java", "dart"],
+    "Frontend": ["nextjs","tailwind", "laravel", "symfony", "flutter"],
+    "Backend": ["springboot", "FastAPI", "MongoDB", "laravel", "symfony"],
+    "Ai_ml": [
+      "TensorFlow",
+      "PyTorch",
+      "openaiApi",
+      "Scikit-learn",
+      "NumPy",
+      "Pandas"
+    ],
+    "Tools": ["Docker", "AWS", "Vercel", "Git", "Figma"]
   },
   "experience": [
     {
-      "company": "TechCorp AI",
-      "position": "Senior Full Stack Developer",
-      "duration": "2022 - Present",
-      "description": "Lead development of AI-powered SaaS applications, managing a team of 4 developers and implementing ML models in production.",
+      "company": "CubeIT",
+      "position": "Mobile Developer",
+      "duration": "June - July 2024",
+      "description": "Developed and improved mobile applications for vehicle rental companies using Flutter, focusing on contract management, user experience, and real-time tracking features.",
       "achievements": [
-        "Built AI chatbot platform processing 1M+ messages monthly",
-        "Reduced API response time by 60% through optimization",
-        "Mentored 3 junior developers"
+        "Developed a mobile application using Flutter for vehicle rental companies, enabling employees to create and manage rental contracts, view contracts, and track vehicles",
+        "Redesigned an existing driver Flutter mobile application interface, reducing bugs and enhancing user experience.",
+        "Implemented two new features for the driver app: a reporting tool and a real-time vehicle tracking system"
       ]
     },
     {
-      "company": "StartupXYZ",
-      "position": "Full Stack Developer",
-      "duration": "2020 - 2022",
+      "company": "CubeIT",
+      "position": "Final Year Project Internship",
+      "duration": "Feb - May 2024",
       "description": "Developed web applications using React and Node.js, integrated third-party APIs, and implemented responsive designs.",
       "achievements": [
-        "Launched 5 successful web applications",
-        "Improved user engagement by 40%",
-        "Implemented CI/CD pipelines"
+        "Collaborated with a team to develop the backend of a fleet operations support system platform using SpringBoot.",
+        "Developed a robust mobile application using Flutter for a transportation company, streamlining functionalitiessuch as booking bus tickets, managing tickets, and tracking buses for trips."
       ]
     }
   ],
