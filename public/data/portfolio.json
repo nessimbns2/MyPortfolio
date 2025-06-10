@@ -61,30 +61,33 @@
   ],
   "projects": [
     {
-      "name": "AI Code Assistant",
-      "description": "An intelligent code completion and review tool powered by large language models",
-      "technologies": ["React", "Node.js", "OpenAI API", "MongoDB"],
+      "name": "Taalem Online",
+      "description": "An e-learning platform designed for primary school students, offering interactive lessons, engaging activities, and progress tracking to support foundational learning in a fun and accessible environment.",
+      "technologies": ["Next.js", "Spring Boot", "MongoDB"],
       "github": "https://github.com/alexchen/ai-code-assistant",
       "demo": "https://ai-code-assistant.vercel.app",
-      "image": "/placeholder.svg?height=300&width=500",
+      "showDemo": true,
+      "image": "/taalem online.png?height=300&width=500",
       "featured": true
     },
     {
-      "name": "Smart Analytics Dashboard",
-      "description": "Real-time analytics platform with AI-powered insights and predictive modeling",
-      "technologies": ["Next.js", "Python", "TensorFlow", "PostgreSQL"],
+      "name": "Digital Sales ",
+      "description": "Digital Sales is a modern, user-friendly mobile app designed to help small businesses stay organized and professional, offering a smooth experience for managing essential tasks anytime, anywhere.",
+      "technologies": ["Flutter", "Spring Boot", "MongoDB"],
       "github": "https://github.com/alexchen/smart-analytics",
       "demo": "https://smart-analytics.vercel.app",
-      "image": "/placeholder.svg?height=300&width=500",
+      "showDemo": true,
+      "image": "/degital_sales.png?height=300&width=500",
       "featured": true
     },
     {
-      "name": "Voice-to-Code Converter",
-      "description": "Convert natural language voice commands into executable code using speech recognition and AI",
-      "technologies": ["React", "Web Speech API", "OpenAI API", "Node.js"],
-      "github": "https://github.com/alexchen/voice-to-code",
-      "demo": "https://voice-to-code.vercel.app",
-      "image": "/placeholder.svg?height=300&width=500",
+      "name": "AnimeRec",
+      "description": "Web application designed to suggest anime based on the preferences of users with similar tastes. It analyzes user profiles and identifies viewing patterns to offer personalized recommendations.",
+      "technologies": ["Next.js", "Fast API", "postgresql","Scikit-learn"],
+      "github": "https://github.com/alexchen/anime-rec",
+      "demo": "https://anime-rec.vercel.app",
+      "showDemo": false,
+      "image": "/anime_rec.png?height=300&width=500",
       "featured": false
     }
   ]
