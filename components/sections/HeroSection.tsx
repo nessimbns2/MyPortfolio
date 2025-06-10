@@ -57,12 +57,21 @@ export default function HeroSection({ name, title, tagline, social, onContactCli
             </Button>
 
             <Button
+              asChild
               variant="outline"
               size="lg"
               className="group border-2 border-white/20 text-black font-semibold px-10 py-4 rounded-2xl backdrop-blur-sm transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-950"
             >
-              <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
-              Download CV
+              <a
+                href="/data/cv.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
+                Download CV
+              </a>
             </Button>
           </div>
 
