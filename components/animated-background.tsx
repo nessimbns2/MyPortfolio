@@ -16,7 +16,7 @@ interface FloatingBlock {
 export function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const blocksRef = useRef<FloatingBlock[]>([])
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
