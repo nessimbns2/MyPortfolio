@@ -39,11 +39,11 @@
   "experience": [
     {
       "company": "CubeIT",
-      "position": "Mobile Developer",
+      "position": "Full Stack Developer",
       "duration": "June - July 2024",
       "description": "Developed and improved mobile applications for vehicle rental companies using Flutter, focusing on contract management, user experience, and real-time tracking features.",
       "achievements": [
-        "Developed a mobile application using Flutter for vehicle rental companies, enabling employees to create and manage rental contracts, view contracts, and track vehicles",
+        "Developed a mobile application using Flutter and Spring Boot for vehicle rental companies, enabling employees to create and manage rental contracts, view contracts, and track vehicles",
         "Redesigned an existing driver Flutter mobile application interface, reducing bugs and enhancing user experience.",
         "Implemented two new features for the driver app: a reporting tool and a real-time vehicle tracking system"
       ]
@@ -74,7 +74,7 @@
       "name": "Digital Sales ",
       "description": "Digital Sales is a modern, user-friendly mobile app designed to help small businesses stay organized and professional, offering a smooth experience for managing essential tasks anytime, anywhere.",
       "technologies": ["Flutter", "Spring Boot", "MongoDB"],
-      "github": "https://github.com/alexchen/smart-analytics",
+      "github": "https://github.com/nessimbns2/DegitalSales",
       "demo": "https://smart-analytics.vercel.app",
       "showDemo": false,
       "image": "/degital_sales.png?height=300&width=500",
