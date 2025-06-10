@@ -63,7 +63,7 @@ export default function HeroSection({ name, title, tagline, social, onContactCli
               className="group border-2 border-white/20 text-black font-semibold px-10 py-4 rounded-2xl backdrop-blur-sm transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-950"
             >
               <a
-                href="/data/cv.pdf"
+                href="https://github.com/nessimbns2/MyPortfolio/raw/master/public/data/CV.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
