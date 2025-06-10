@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Portfolio from './page'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: "Nessim's Portfolio",
+  description: "Nessim's personal portfolio showcasing projects and skills.",
 }
 
 export default function RootLayout({
