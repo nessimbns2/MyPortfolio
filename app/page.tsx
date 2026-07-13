@@ -242,9 +242,36 @@ export default function Portfolio() {
 
   if (!data) {
     return (
-      <div className="min-h-screen bg-[#fafafa] flex items-center justify-center relative overflow-hidden">
-        <div className="flex flex-col items-center space-y-4">
-          <div className="w-10 h-10 border-2 border-zinc-300 border-t-zinc-900 rounded-full animate-spin"></div>
+      <div className="min-h-screen bg-[#fafafa] flex flex-col items-center justify-center relative overflow-hidden px-4">
+        {/* Animated Initials Box */}
+        <div className="w-16 h-16 flex items-center justify-center bg-zinc-950 text-white font-mono text-xl font-black uppercase shadow-[4px_4px_0px_0px_rgba(9,9,11,0.15)] animate-bounce mb-4">
+          NB
+        </div>
+
+        {/* Name Title */}
+        <h1 className="font-sans font-black text-lg tracking-widest text-zinc-950 uppercase mb-6">
+          NESSIM BARAKET
+        </h1>
+
+        {/* Retro Neobrutalist Loader Box */}
+        <div className="border-2 border-zinc-950 bg-white p-5 shadow-[4px_4px_0px_0px_rgba(9,9,11,1)] w-full max-w-xs space-y-4">
+          <div className="flex items-center justify-between">
+            <span className="font-mono text-[10px] font-black uppercase tracking-wider text-zinc-800">
+              System Booting
+            </span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          </div>
+
+          {/* Progress Bar Container */}
+          <div className="border-2 border-zinc-950 h-5 w-full bg-zinc-100 overflow-hidden relative">
+            <div className="h-full bg-sky-400 border-r-2 border-zinc-950 animate-progress-fill" />
+          </div>
+
+          {/* Status Message */}
+          <div className="font-mono text-[9px] text-zinc-500 uppercase tracking-wider flex justify-between">
+            <span>Shippers Active</span>
+            <span className="animate-blink">_</span>
+          </div>
         </div>
       </div>
     )

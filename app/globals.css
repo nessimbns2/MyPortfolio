@@ -139,10 +139,39 @@
   }
 
   .animate-hero-slide-up {
-    animation: heroSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: heroSlideUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animate-spec-slide-in {
-    animation: specSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: specSlideIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes progressFill {
+    0% {
+      width: 0%;
+    }
+    30% {
+      width: 35%;
+    }
+    60% {
+      width: 75%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .animate-progress-fill {
+    animation: progressFill 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .animate-blink {
+    animation: blink 0.8s step-start infinite;
   }
 }
