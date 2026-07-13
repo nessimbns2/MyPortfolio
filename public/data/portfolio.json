@@ -38,6 +38,16 @@
   },
   "experience": [
     {
+      "company": "Capgemini",
+      "position": "AI Developer Intern",
+      "duration": "June - July 2026",
+      "description": "Developed the 'AI Proposal Builder for Sales Teams' module to generate structured, branded project proposals from minimal client descriptions.",
+      "achievements": [
+        "Created an AI-powered module that generates full project proposals (scope, timeline, architecture diagrams, cost estimates, risk matrices) from minimal input.",
+        "Engineered backend workflows allowing sales teams to describe client needs in natural language and output polished, branded documents with auto-generated diagrams and editable sections."
+      ]
+    },
+    {
       "company": "CubeIT",
       "position": "Full Stack Developer",
       "duration": "June - July 2024",
@@ -89,6 +99,27 @@
       "showDemo": false,
       "image": "/anime_rec.png?height=300&width=500",
       "featured": false
+    }
+  ],
+  "education": [
+    {
+      "institution": "École Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)",
+      "degree": "Engineer's degree in Computer Software Engineering",
+      "location": "Ariana, Tunisia",
+      "duration": "Jan 2024 - Present"
+    },
+    {
+      "institution": "Higher Institute of Computer Science - Tunisia (ISI)",
+      "degree": "National Diploma in Computer Science License",
+      "location": "Ariana, Tunisia",
+      "duration": "Jan 2021 - Jan 2024"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AI Programming with Python (Nanodegree)",
+      "issuer": "AWS & Udacity",
+      "date": "Issued Feb 2024"
     }
   ]
 }

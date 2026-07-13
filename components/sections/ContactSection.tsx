@@ -1,9 +1,6 @@
 "use client"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Mail, Phone, MapPin } from "lucide-react"
-import Link from "next/link"
-import React from "react"
+import React, { useState } from "react"
+import { Mail, Phone, MapPin, Send } from "lucide-react"
 
 interface ContactSectionProps {
   email: string
@@ -11,78 +8,146 @@ interface ContactSectionProps {
   location: string
 }
 
-const ContactSection: React.FC<ContactSectionProps> = ({ email, phone, location }) => (
-  <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10">
-    <div className="max-w-6xl mx-auto text-center">
-      <div className="mb-20">
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
-          Let's Work Together
-        </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-8"></div>
-        <p className="text-white/80 text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed font-light">
-          {"I'm always interested in new opportunities and exciting projects. Let's connect and build something amazing together!"}
-        </p>
-      </div>
-      <div className="grid sm:grid-cols-3 gap-8 mb-16">
-        {[
-          {
-            icon: Mail,
-            label: "Email",
-            value: email,
-            color: "from-blue-500 to-cyan-500",
-            hoverColor: "hover:shadow-blue-500/25",
-          },
-          {
-            icon: Phone,
-            label: "Phone",
-            value: phone,
-            color: "from-green-500 to-emerald-500",
-            hoverColor: "hover:shadow-green-500/25",
-          },
-          {
-            icon: MapPin,
-            label: "Location",
-            value: location,
-            color: "from-purple-500 to-pink-500",
-            hoverColor: "hover:shadow-purple-500/25",
-          },
-        ].map(({ icon: Icon, label, value, color, hoverColor }, index) => (
-          <Card
-            key={label}
-            className={`group bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 hover:border-white/20 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-xl ${hoverColor} hover:shadow-2xl animate-fade-in-up`}
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
-            <CardContent className="pt-8 pb-6 text-center">
-              <div
-                className={`w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r ${color} p-0.5 group-hover:scale-110 transition-transform duration-300`}
+const ContactSection: React.FC<ContactSectionProps> = ({ email, phone, location }) => {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [isSending, setIsSending] = useState(false)
+  const [sent, setSent] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSending(true)
+    
+    setTimeout(() => {
+      setIsSending(false)
+      setSent(true)
+      
+      const mailtoUrl = `mailto:${email}?subject=Project Collaboration - ${formData.name}&body=${encodeURIComponent(
+        `Hi Nessim,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`
+      )}`
+      
+      window.location.href = mailtoUrl
+      
+      setTimeout(() => {
+        setFormData({ name: "", email: "", message: "" })
+        setSent(false)
+      }, 3000)
+    }, 800)
+  }
+
+  return (
+    <section id="contact" className="py-8 md:py-12 relative z-10 bg-[#f7f7f8] border-b border-zinc-200">
+      <div className="max-w-6xl mx-auto w-full space-y-12 px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Heading */}
+        <div className="flex items-center gap-2 pb-4 border-b border-zinc-200">
+          <span className="w-2.5 h-2.5 bg-sky-500 inline-block flex-shrink-0" />
+          <h2 className="font-mono text-xs uppercase tracking-widest text-zinc-800 font-bold">
+            Connection & Collab
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-12 gap-8 items-start">
+          
+          {/* Left: Contact Info */}
+          <div className="md:col-span-5 space-y-6">
+            <p className="text-zinc-700 font-sans font-normal leading-relaxed text-sm sm:text-base">
+              Book a call or send a direct email. No pitch deck—just your problem and whether I'm the right engineer to build your software.
+            </p>
+
+            <div className="space-y-4 font-mono text-xs sm:text-sm text-zinc-700">
+              <a 
+                href={`mailto:${email}`} 
+                className="flex items-center gap-2.5 text-zinc-700 hover:text-sky-600 transition-colors group"
               >
-                <div className="w-full h-full rounded-full bg-gray-950 flex items-center justify-center">
-                  <Icon className="w-8 h-8 text-white" />
+                <Mail className="w-4 h-4 text-zinc-400 group-hover:text-sky-500 transition-colors" />
+                <span>{email}</span> <span>→</span>
+              </a>
+
+              <a 
+                href={`tel:${phone.replace(/\s+/g, "")}`} 
+                className="flex items-center gap-2.5 text-zinc-700 hover:text-sky-600 transition-colors group"
+              >
+                <Phone className="w-4 h-4 text-zinc-400 group-hover:text-sky-500 transition-colors" />
+                <span>{phone}</span> <span>→</span>
+              </a>
+
+              <div className="flex items-center gap-2.5 text-zinc-500">
+                <MapPin className="w-4 h-4 text-zinc-400" />
+                {location}
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Minimal Form */}
+          <div className="md:col-span-7">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label htmlFor="name" className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-white border border-zinc-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-zinc-900 rounded px-4 py-3 text-sm focus:outline-none transition-colors"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label htmlFor="email" className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">Your Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-white border border-zinc-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-zinc-900 rounded px-4 py-3 text-sm focus:outline-none transition-colors"
+                    placeholder="john@example.com"
+                  />
                 </div>
               </div>
-              <p className="text-white font-bold mb-3 text-lg group-hover:text-blue-200 transition-colors duration-300">
-                {label}
-              </p>
-              <p className="text-white/70 font-medium group-hover:text-white/90 transition-colors duration-300">
-                {value}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
+
+              <div className="space-y-1">
+                <label htmlFor="message" className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">Your Message</label>
+                <textarea
+                  id="message"
+                  required
+                  rows={3}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full bg-white border border-zinc-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-zinc-900 rounded px-4 py-3 text-sm focus:outline-none transition-colors resize-none"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSending || sent}
+                className="w-full border-2 border-zinc-950 bg-sky-400 text-zinc-950 font-mono text-xs sm:text-sm font-bold py-3 px-4 shadow-[2px_2px_0px_0px_rgba(9,9,11,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 focus:outline-none disabled:opacity-50"
+              >
+                {isSending ? (
+                  <div className="w-4 h-4 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin" />
+                ) : sent ? (
+                  "Message Sent ✓"
+                ) : (
+                  <>
+                    <Send className="w-3.5 h-3.5" />
+                    Send message
+                  </>
+                )}
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+
       </div>
-      <Button
-        asChild
-        size="lg"
-        className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-12 py-4 rounded-2xl shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-950"
-      >
-        <Link href={`mailto:${email}`} aria-label="Send email">
-          <Mail className="w-6 h-6 mr-3 group-hover:animate-bounce" />
-          Send Message
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-        </Link>
-      </Button>
-    </div>
-  </section>
-)
+    </section>
+  )
+}
 
 export default ContactSection

@@ -1,7 +1,6 @@
 "use client"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { Github, Linkedin, Twitter, Download, Mail } from "lucide-react"
+import React from "react"
+import { ArrowRight, ArrowDown } from "lucide-react"
 
 interface HeroSectionProps {
   name: string
@@ -16,82 +15,106 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ name, title, tagline, social, onContactClick }: HeroSectionProps) {
+  // Karol Binkowski screenshot style "ENGINEER SPEC" data
+  const specRows = [
+    { label: "BASED", value: "Ariana, TN" },
+    { label: "MODE", value: "Remote · Intl" },
+    { label: "ENGAGE", value: "Part-time" },
+    { label: "STACK", value: "Flutter · React · FastAPI" },
+    { label: "STATUS", value: "Available", isStatus: true }
+  ]
+
   return (
-    <section id="hero" className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-5xl mx-auto">
-          <div className="mb-12 animate-fade-in-up">
-            <div className="relative w-40 h-40 mx-auto mb-8">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 animate-spin-slow">
-                <div className="w-full h-full rounded-full bg-gray-950 flex items-center justify-center text-6xl border border-white/10">
-                  🤖
-                </div>
-              </div>
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl animate-pulse"></div>
+    <section
+      id="hero"
+      className="relative flex flex-col justify-center py-8 md:py-12 px-4 sm:px-6 lg:px-8 border-b border-zinc-200 bg-white"
+    >
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+
+        {/* Main Grid: Headline/Description on Left, Spec Card on Right */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+
+          {/* Left Column: Eyebrow, Giant Headline, Description, Actions */}
+          <div className="md:col-span-7 space-y-6 animate-hero-slide-up">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 bg-sky-500 inline-block flex-shrink-0" />
+              <span className="font-mono text-xs uppercase tracking-widest text-zinc-900 font-bold">
+                SOFTWARE ENGINEER
+              </span>
             </div>
 
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent leading-tight animate-text-shimmer">
-              {name}
+            {/* Giant Neobrutalist Headline */}
+            <h1 className="font-sans font-black text-5xl sm:text-7xl text-zinc-950 uppercase tracking-tighter leading-[0.9] flex flex-col">
+              <span>YOU HAVE</span>
+              <span>SOMETHING.</span>
+              <span className="mt-1">
+                <span className="bg-sky-400 text-zinc-950 px-3 py-1 inline-block">
+                  I SHIP IT.
+                </span>
+              </span>
             </h1>
 
-            <div className="relative mb-8">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white/90 mb-6 font-light tracking-wide">
-                {title}
-              </h2>
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-            </div>
-
-            <p className="text-lg sm:text-xl lg:text-2xl text-white/70 max-w-4xl mx-auto mb-12 leading-relaxed font-light">
-              {tagline}
+            {/* Description */}
+            <p className="text-zinc-800 font-sans text-base sm:text-lg leading-relaxed font-normal max-w-2xl">
+              You have a software idea, an ML prototype, or an application that's stuck. I find what's blocking it and ship the fix — then explain every decision clearly.
             </p>
-          </div>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16 animate-fade-in-up delay-300">
-            <Button
-              onClick={onContactClick}
-              size="lg"
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-10 py-4 rounded-2xl shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-950"
-            >
-              <span className="relative z-10">Get In Touch</span>
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-            </Button>
-
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="group border-2 border-white/20 text-black font-semibold px-10 py-4 rounded-2xl backdrop-blur-sm transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-950"
-            >
+            {/* Actions */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <button
+                onClick={onContactClick}
+                className="font-mono text-sm font-bold text-zinc-950 bg-sky-400 border-2 border-zinc-950 px-6 py-3 shadow-[3px_3px_0px_0px_rgba(9,9,11,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all focus:outline-none"
+              >
+                BOOK A CALL →
+              </button>
               <a
-                href="https://github.com/nessimbns2/MyPortfolio/raw/master/public/data/CV.pdf"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center"
+                href="#projects"
+                className="font-mono text-sm font-bold text-zinc-950 bg-white border-2 border-zinc-950 px-6 py-3 shadow-[3px_3px_0px_0px_rgba(9,9,11,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all flex items-center gap-1.5"
               >
-                <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
-                Download CV
+                SEE THE WORK ↓
               </a>
-            </Button>
+            </div>
           </div>
 
-          <div className="flex justify-center space-x-8 animate-fade-in-up delay-500">
-            {[
-              { href: social.github, icon: Github, label: "GitHub", color: "hover:text-gray-300" },
-              { href: social.linkedin, icon: Linkedin, label: "LinkedIn", color: "hover:text-blue-400" },
-              { href: social.twitter, icon: Twitter, label: "Twitter", color: "hover:text-cyan-400" },
-            ].map(({ href, icon: Icon, label, color }) => (
-              <Link
-                key={label}
-                href={href}
-                className={`group text-white/60 ${color} transition-all duration-300 transform hover:scale-125 p-3 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-950`}
-                aria-label={`Visit ${label} profile`}
-              >
-                <Icon className="w-7 h-7 group-hover:animate-pulse" />
-              </Link>
-            ))}
+          {/* Right Column: Neobrutalist "ENGINEER SPEC" Card */}
+          <div className="md:col-span-5 animate-spec-slide-in">
+            <div className="border-2 border-zinc-950 bg-white shadow-[4px_4px_0px_0px_rgba(9,9,11,1)]">
+              {/* Card Header */}
+              <div className="bg-sky-400 border-b-2 border-zinc-950 px-4 py-3 flex items-center justify-between">
+                <span className="font-mono text-sm font-black uppercase tracking-wider text-zinc-950">
+                  ENGINEER SPEC
+                </span>
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-950 animate-pulse" />
+              </div>
+
+              {/* Card Body Rows */}
+              <div className="divide-y divide-zinc-200">
+                {specRows.map((row, idx) => (
+                  <div key={idx} className="grid grid-cols-12 items-center px-4 py-3.5 font-mono text-xs leading-none">
+                    {/* Label */}
+                    <div className="col-span-4 text-zinc-400 font-bold uppercase tracking-wider">
+                      {row.label}
+                    </div>
+                    {/* Value */}
+                    <div className="col-span-8 text-zinc-800 font-bold flex items-center gap-1.5">
+                      {row.isStatus ? (
+                        <>
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
+                          <span>{row.value}</span>
+                        </>
+                      ) : (
+                        <span>{row.value}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
+
         </div>
+
       </div>
     </section>
   )

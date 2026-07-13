@@ -3,7 +3,7 @@ import * as React from "react";
 export default function AwsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      fill="white"
+      fill="currentColor"
       width="1em"
       height="1em"
       viewBox="0 0 24 24"

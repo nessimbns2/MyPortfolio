@@ -1,9 +1,8 @@
 "use client"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import React from "react"
+import { MapPin } from "lucide-react"
 
-interface Experience {
+interface ExperienceItem {
   company: string
   position: string
   duration: string
@@ -12,62 +11,71 @@ interface Experience {
 }
 
 interface ExperienceSectionProps {
-  experience: Experience[]
+  experience: ExperienceItem[]
 }
 
-const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience }) => (
-  <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10">
-    <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-20">
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
-          Experience
-        </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
-      </div>
-      <div className="space-y-12">
-        {experience.map((exp, index) => (
-          <Card
-            key={index}
-            className="group bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/8 hover:border-white/20 transition-all duration-500 shadow-xl hover:shadow-2xl animate-fade-in-up"
-            style={{ animationDelay: `${index * 200}ms` }}
-          >
-            <CardHeader className="pb-6">
-              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
-                <div className="space-y-2">
-                  <CardTitle className="text-white text-2xl lg:text-3xl font-bold group-hover:text-blue-200 transition-colors duration-300">
-                    {exp.position}
-                  </CardTitle>
-                  <CardDescription className="text-blue-400 text-xl font-semibold">{exp.company}</CardDescription>
-                </div>
-                <Badge
-                  variant="outline"
-                  className="border-white/20 text-white/80 font-medium px-4 py-2 text-sm self-start bg-white/5 backdrop-blur-sm"
-                >
+const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience }) => {
+  return (
+    <section id="experience" className="py-8 md:py-12 px-4 sm:px-6 lg:px-8 border-b border-zinc-200 relative z-10">
+      <div className="max-w-6xl mx-auto w-full space-y-12">
+        
+        {/* Section Heading */}
+        <div className="flex justify-between items-baseline pb-2 border-b border-zinc-200">
+          <h2 className="font-mono text-xs uppercase tracking-widest text-zinc-400 font-bold">
+            Selected Experience
+          </h2>
+        </div>
+
+        {/* Timeline List in Karol's structured format */}
+        <div className="divide-y divide-zinc-200">
+          {experience.map((exp, index) => (
+            <div 
+              key={index} 
+              className="grid grid-cols-1 md:grid-cols-12 gap-4 py-8 first:pt-0 last:pb-0 reveal"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              {/* Left Column: Duration & Company */}
+              <div className="md:col-span-4 space-y-1">
+                <span className="font-mono text-xs text-zinc-400 tracking-wider block">
                   {exp.duration}
-                </Badge>
+                </span>
+                <h3 className="font-sans font-black text-lg text-zinc-950 leading-tight">
+                  {exp.company}
+                </h3>
+                <div className="flex items-center gap-1 text-zinc-400 font-mono text-xs uppercase tracking-wider">
+                  <MapPin className="w-3.5 h-3.5" />
+                  Ariana, Tunisia
+                </div>
               </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-white/80 mb-8 leading-relaxed text-lg">{exp.description}</p>
-              <div className="space-y-4">
-                {exp.achievements.map((achievement, i) => (
-                  <div
-                    key={i}
-                    className="group/item flex items-start space-x-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300"
-                  >
-                    <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mt-3 group-hover:item:scale-150 transition-transform duration-300"></div>
-                    <span className="text-white/70 group-hover/item:text-white/90 leading-relaxed transition-colors duration-300">
+
+              {/* Right Column: Position & Details */}
+              <div className="md:col-span-8 space-y-3">
+                <h4 className="font-mono text-sm uppercase tracking-wider text-zinc-800 font-bold">
+                  {exp.position}
+                </h4>
+                
+                <p className="text-zinc-700 font-sans font-normal leading-relaxed text-sm sm:text-base">
+                  {exp.description}
+                </p>
+
+                {/* Achievements List */}
+                <ul className="space-y-2 list-disc list-outside pl-4">
+                  {exp.achievements.map((achievement, i) => (
+                    <li 
+                      key={i} 
+                      className="text-zinc-600 font-sans font-normal text-sm sm:text-base leading-relaxed marker:text-zinc-300"
+                    >
                       {achievement}
-                    </span>
-                  </div>
-                ))}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </CardContent>
-          </Card>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-)
+    </section>
+  )
+}
 
 export default ExperienceSection
