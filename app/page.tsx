@@ -167,10 +167,13 @@ export default function Portfolio() {
     flutter: SiFlutter,
   };
 
-  // Fetch portfolio content and enforce minimum loader duration of 3s
+  // Fetch portfolio content and show the boot loader only once per session
   useEffect(() => {
+    const sessionLoaderKey = "portfolioLoaderShown"
+    const shouldSkipLoader = window.sessionStorage.getItem(sessionLoaderKey) === "true"
+
     let dataLoaded = false
-    let timerDone = false
+    let timerDone = shouldSkipLoader
     let pendingJsonData: PortfolioData | null = null
 
     const checkLoadingState = () => {
@@ -198,8 +201,9 @@ export default function Portfolio() {
 
     const timer = setTimeout(() => {
       timerDone = true
+      window.sessionStorage.setItem(sessionLoaderKey, "true")
       checkLoadingState()
-    }, 1700)
+    }, shouldSkipLoader ? 0 : 1700)
 
     fetchData()
 

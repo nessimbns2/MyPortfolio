@@ -12,26 +12,38 @@ const ContactSection: React.FC<ContactSectionProps> = ({ email, phone, location 
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [isSending, setIsSending] = useState(false)
   const [sent, setSent] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSending(true)
-    
-    setTimeout(() => {
-      setIsSending(false)
+    setSubmitError(null)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        const result = (await response.json().catch(() => null)) as { error?: string } | null
+        throw new Error(result?.error || "Unable to send your message right now. Please try again.")
+      }
+
       setSent(true)
-      
-      const mailtoUrl = `mailto:${email}?subject=Project Collaboration - ${formData.name}&body=${encodeURIComponent(
-        `Hi Nessim,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`
-      )}`
-      
-      window.location.href = mailtoUrl
-      
-      setTimeout(() => {
-        setFormData({ name: "", email: "", message: "" })
+      setFormData({ name: "", email: "", message: "" })
+
+      window.setTimeout(() => {
         setSent(false)
       }, 3000)
-    }, 800)
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "Something went wrong. Please try again.")
+    } finally {
+      setIsSending(false)
+    }
   }
 
   return (
@@ -139,6 +151,12 @@ const ContactSection: React.FC<ContactSectionProps> = ({ email, phone, location 
                   </>
                 )}
               </button>
+
+              {submitError ? (
+                <p className="font-mono text-[11px] text-red-600" role="status" aria-live="polite">
+                  {submitError}
+                </p>
+              ) : null}
 
             </form>
           </div>
