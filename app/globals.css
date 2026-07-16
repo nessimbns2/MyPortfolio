@@ -91,6 +91,34 @@
     background: #a1a1aa;
   }
 
+  /* Experience & Projects Custom Scrollers */
+  .experience-scroller::-webkit-scrollbar,
+  .projects-scroller::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .experience-scroller::-webkit-scrollbar-track,
+  .projects-scroller::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-left: 1px dashed #e4e4e7;
+  }
+
+  .experience-scroller::-webkit-scrollbar-thumb,
+  .projects-scroller::-webkit-scrollbar-thumb {
+    background: #38bdf8; /* sky-400 */
+    border: 1px solid #09090b;
+    border-radius: 0px;
+  }
+
+  .experience-scroller::-webkit-scrollbar-thumb:hover,
+  .projects-scroller::-webkit-scrollbar-thumb:hover {
+    background: #0284c7; /* sky-600 */
+  }
+
+
+
+
+
   /* Custom Scroll Reveal */
   .reveal {
     opacity: 0;
