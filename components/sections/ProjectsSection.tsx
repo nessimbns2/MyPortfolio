@@ -8,6 +8,7 @@ interface ProjectItem {
   technologies: string[]
   github: string
   demo?: string
+  showDemo?: boolean
 }
 
 interface ProjectsSectionProps {
@@ -128,15 +129,29 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
 
                     {/* Top Row: Title (Left) & Technologies (Right) */}
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                      <a 
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-sans font-black text-base tracking-wide text-zinc-950 uppercase hover:text-sky-600 transition-colors group flex items-center gap-1.5 focus:outline-none"
-                      >
-                        {displayName}
-                        <span className="text-zinc-400 group-hover:text-sky-600 text-sm transition-colors">↗</span>
-                      </a>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <a 
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-sans font-black text-base tracking-wide text-zinc-950 uppercase hover:text-sky-600 transition-colors group flex items-center gap-1.5 focus:outline-none"
+                        >
+                          {displayName}
+                          <span className="text-zinc-400 group-hover:text-sky-600 text-sm transition-colors">↗</span>
+                        </a>
+
+                        {project.demo && project.showDemo !== false && (
+                          <a 
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-2.5 py-0.5 font-mono text-[10px] font-black uppercase tracking-wider text-zinc-950 bg-sky-300 border-2 border-zinc-950 shadow-[2px_2px_0px_0px_rgba(9,9,11,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all focus:outline-none"
+                          >
+                            <span>Live Demo</span>
+                            <span className="text-[9px]">↗</span>
+                          </a>
+                        )}
+                      </div>
 
                       {/* Tech stack pills in monospace */}
                       <div className="flex flex-wrap gap-1.5">

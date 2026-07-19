@@ -124,8 +124,8 @@
         "MongoDB"
       ],
       "github": "https://github.com/nessimbns2/E-Learning-Platform",
-      "demo": "https://ai-code-assistant.vercel.app",
-      "showDemo": false,
+      "demo": "https://taalemonline.vercel.app/",
+      "showDemo": true,
       "image": "/taalem online.png?height=300&width=500",
       "featured": true
     },
