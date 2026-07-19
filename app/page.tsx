@@ -5,7 +5,7 @@ import GitIcon from "@/components/icons/GitIcon"
 import VercelIcon from "@/components/icons/VercelIcon"
 import FigmaIcon from "@/components/icons/FigmaIcon"
 import { Code, Database, Brain, Wrench } from "lucide-react"
-import { SiDart, SiFlutter } from "react-icons/si";
+import { SiDart, SiFlutter, SiJest, SiSwagger, SiKnexdotjs } from "react-icons/si";
 
 import { useEffect, useState } from "react"
 import { Github, Linkedin, Twitter, Mail, Phone, MapPin, ExternalLink, Download, Menu, X, ArrowUp } from "lucide-react"
@@ -165,6 +165,11 @@ export default function Portfolio() {
     laravel: LaravelIcon,
     dart: SiDart,
     flutter: SiFlutter,
+    jest: SiJest,
+    swagger: SiSwagger,
+    knex: SiKnexdotjs,
+    knexjs: SiKnexdotjs,
+    expressjs: ExpressIcon,
   };
 
   // Fetch portfolio content and show the boot loader only once per session

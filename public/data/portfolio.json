@@ -23,10 +23,35 @@
     ]
   },
   "skills": {
-    "Languages": ["c","cpp", "Python", "php", "Java", "dart"],
-    "Frontend": ["nextjs","tailwind", "laravel", "symfony", "flutter"],
-    "Backend": ["springboot", "FastAPI", "MongoDB", "laravel", "symfony"],
-    "Ai_ml": [
+    "languages": [
+      "c",
+      "cpp",
+      "Python",
+      "php",
+      "Java",
+      "dart",
+      "JavaScript",
+      "TypeScript"
+    ],
+    "frontend": [
+      "nextjs",
+      "tailwind",
+      "laravel",
+      "symfony",
+      "flutter"
+    ],
+    "backend": [
+      "springboot",
+      "FastAPI",
+      "MongoDB",
+      "laravel",
+      "symfony",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Knex.js"
+    ],
+    "ai_ml": [
       "TensorFlow",
       "PyTorch",
       "openaiApi",
@@ -34,7 +59,15 @@
       "NumPy",
       "Pandas"
     ],
-    "Tools": ["Docker", "AWS", "Vercel", "Git", "Figma"]
+    "tools": [
+      "Docker",
+      "AWS",
+      "Vercel",
+      "Git",
+      "Figma",
+      "Jest",
+      "Swagger"
+    ]
   },
   "experience": [
     {
@@ -45,6 +78,18 @@
       "achievements": [
         "Created an AI-powered module that generates full project proposals (scope, timeline, architecture diagrams, cost estimates, risk matrices) from minimal input.",
         "Engineered backend workflows allowing sales teams to describe client needs in natural language and output polished, branded documents with auto-generated diagrams and editable sections."
+      ]
+    },
+    {
+      "company": "WAAW.TN",
+      "position": "Backend Software Engineer Intern",
+      "duration": "July - August 2025",
+      "description": "Designed and built a RESTful, Stateless API from scratch using Node.js and Express.js to serve as the core backend for a collaborative e-commerce marketplace.",
+      "achievements": [
+        "Optimized database performance by implementing strategic PostgreSQL indexes for multi-criteria influencer searches and product filtering.",
+        "Developed automated commission calculations and virtual balance ledger workflows using node-cron.",
+        "Secured public API endpoints with Rate Limiting and CORS middlewares, and integrated Winston for production traceability.",
+        "Created Jest unit tests for financial calculators and JWT/RBAC authentication workflows, and documented 100% of endpoints via Swagger."
       ]
     },
     {
@@ -73,7 +118,11 @@
     {
       "name": "Taalem Online",
       "description": "An e-learning platform designed for primary school students, offering interactive lessons, engaging activities, and progress tracking to support foundational learning in a fun and accessible environment.",
-      "technologies": ["Next.js", "Spring Boot", "MongoDB"],
+      "technologies": [
+        "Next.js",
+        "Spring Boot",
+        "MongoDB"
+      ],
       "github": "https://github.com/nessimbns2/E-Learning-Platform",
       "demo": "https://ai-code-assistant.vercel.app",
       "showDemo": false,
@@ -83,7 +132,11 @@
     {
       "name": "Digital Sales ",
       "description": "Digital Sales is a modern, user-friendly mobile app designed to help small businesses stay organized and professional, offering a smooth experience for managing essential tasks anytime, anywhere.",
-      "technologies": ["Flutter", "Spring Boot", "MongoDB"],
+      "technologies": [
+        "Flutter",
+        "Spring Boot",
+        "MongoDB"
+      ],
       "github": "https://github.com/nessimbns2/DegitalSales",
       "demo": "https://smart-analytics.vercel.app",
       "showDemo": false,
@@ -93,7 +146,12 @@
     {
       "name": "AnimeRec",
       "description": "Web application designed to suggest anime based on the preferences of users with similar tastes. It analyzes user profiles and identifies viewing patterns to offer personalized recommendations.",
-      "technologies": ["Next.js", "Fast API", "postgresql","Scikit-learn"],
+      "technologies": [
+        "Next.js",
+        "Fast API",
+        "postgresql",
+        "Scikit-learn"
+      ],
       "github": "https://github.com/nessimbns2/Anime-rec",
       "demo": "https://anime-rec.vercel.app",
       "showDemo": false,

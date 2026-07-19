@@ -68,6 +68,12 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills, iconMap }) => {
     springboot: "#6db33f",
     fastapi: "#009688",
     mongodb: "#47a248",
+    nodejs: "#339933",
+    express: "#000000",
+    expressjs: "#000000",
+    postgresql: "#4169e1",
+    knex: "#e16426",
+    knexjs: "#e16426",
     
     // AI / ML
     tensorflow: "#ff6f00",
@@ -82,7 +88,9 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills, iconMap }) => {
     aws: "#ff9900",
     vercel: "#000000",
     git: "#f05032",
-    figma: "#f24e1e"
+    figma: "#f24e1e",
+    jest: "#c21325",
+    swagger: "#85ea2d"
   }
 
   return (
