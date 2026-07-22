@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Fraunces, Outfit, Caveat, JetBrains_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -43,6 +44,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-[#fafafa] text-zinc-900 font-sans">
         {children}
+        <Analytics />
       </body>
     </html>
   )

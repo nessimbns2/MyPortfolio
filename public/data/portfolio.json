@@ -116,6 +116,21 @@
   ],
   "projects": [
     {
+      "name": "Antenna Placement Optimizer",
+      "description": "A full-stack simulation tool that solves the NP-hard problem of optimal antenna placement. Featuring a FastAPI backend running metaheuristics and a Next.js frontend with real-time SSE streaming and canvas rendering.",
+      "technologies": [
+        "Next.js",
+        "FastAPI",
+        "Python",
+        "TypeScript"
+      ],
+      "github": "https://github.com/nessimbns2/antenna-placement-optimizer",
+      "demo": "https://antenna-placement-optimizer.vercel.app/",
+      "showDemo": true,
+      "image": "/antenna_optimizer.png?height=300&width=500",
+      "featured": true
+    },
+    {
       "name": "Taalem Online",
       "description": "An e-learning platform designed for primary school students, offering interactive lessons, engaging activities, and progress tracking to support foundational learning in a fun and accessible environment.",
       "technologies": [

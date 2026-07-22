@@ -21,6 +21,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
 
   // Outcomes adapted to match the vertical border-l highlight format seen in the screenshot
   const projectOutcomes: Record<string, string> = {
+    "Antenna Placement Optimizer": "Real-time SSE streaming of metaheuristic optimizations with interactive canvas rendering.",
     "Taalem Online": "Developed RESTful APIs for user authentication, course management, and progress logs.",
     "Digital Sales ": "Offline-first inventory tracking, transaction receipts, and receipt logging.",
     "AnimeRec": "Collaborative filtering recommendation engine training with 95% similarity match."
